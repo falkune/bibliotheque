@@ -50,6 +50,10 @@ Route::get('/books/export-pdf', [BookController::class, 'exportPDF'])
 // edition
 Route::resource('editions', EditionController::class);
 
+Route::get('/healthcheck', function () {
+    return response()->json(['status' => 'ok']);
+});
+
 
 // 🔹 Authentification (gérée par Laravel Breeze/Fortify) -> Toujours chargé mais non obligatoire
 require __DIR__.'/auth.php';
